@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+​
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- personal CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Bestel snel bij cafetaria Duur Garnituur</title>
+  </head>
+  <body class="text-center">
+    <!-- Javascript files-->
+    <script src="Calculate_price.js"></script>
+
+    <!-- Bootstrap styling-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1>Cafetaria Duur Garnituur</h1>
+                <a href="#"><img src="Bitterballen2.jpg" class="smaller-image" alt="Lekkere bitterballen"></a>
+                <a href="#"><img src="Kaassoufle.jpg" class="smaller-image" alt="Lekker kaassoufleetje"></a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header"><h3>Onze Grootse Garnituurkaart</h3></div>
+                    <div class="card-body">
+                        <!--selection menu made through js-->
+                        <p id='menu_sel'></p>
+                        <hr>
+
+                        <h3>Afrekenen</h3> 
+                  
+                        <p>
+                          <button class="btn btn-primary" type="button" onClick="Counter()">Klik hier!</button>
+                        </p> 
+                  
+                        <p id="Total_price"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script> 
+      var Menu = Make_Menu(); 
+  
+      var menu_id = 0;
+      var HTML = '<table style="width:100%">';
+      HTML += '<tr style="border-bottom: 1px solid #000;"><th>Product</th><th>Prijs (in €)</th><th>Aantal</th></tr>';
+      for (var key in Menu) {
+        HTML += '<tr>';
+        HTML += '<th>' + key + '</th><th>' + Menu[key].toFixed(2) + '</th><th><input type="number" id=' + menu_id + ' value=' + 0 + '></th>';
+        HTML += '</tr>';
+        menu_id++;
+      }
+      HTML += '</table><br>';
+  
+      document.getElementById("menu_sel").innerHTML = HTML;
+    </script>
+  </body>
+</html>
